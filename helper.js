@@ -1,14 +1,28 @@
+/*
+helper.js
+create 2019/01/21
+Kosuke Zaizen
+*/
+
+var curPage = "00";
+
 function initial(){
-  selectPage("page00")
+  changePage();
 }
 
-function selectPage(id) {
+function setPage(num){
+  curPage = num;
+}
+
+
+
+function changePage(){
   arrAllPages = document.querySelectorAll(".pageDiv");
 
-  for (i = 0; i < arrAllPages.length; i++) {
+  for (i = 0; i < arrAllPages.length; i++){
     objPage = arrAllPages[i];
 
-    if(objPage.id == id){
+    if(objPage.id == "page" + curPage){
       show(objPage);
     } else {
       hide(objPage);
@@ -16,15 +30,15 @@ function selectPage(id) {
   }
 }
 
-function gebId(id) {
+function gebId(id){
   return document.getElementById(id);
 }
 
-function hide(obj) {
+function hide(obj){
   obj.style.display="none";
 }
 
-function show(obj) {
+function show(obj){
   obj.style.display="block";
 }
 

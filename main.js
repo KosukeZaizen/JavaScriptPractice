@@ -1,8 +1,12 @@
+/*
+main.js
+create 2019/01/21
+Kosuke Zaizen
+*/
 
 function startGame(){
-  selectPage("page01");
+  setPage("01");
+  changePage();
 }
-
-
 
 
