@@ -43,6 +43,38 @@ function startGame(){
 
 
 
+  //---------fish---------
+  for(i=-50; i<50; i++){
+    createImg("image/fish.png", "fish", -500 + i, hCenter + i, 300);
+  }
+  for(i=-50; i<50; i++){
+    createImg("image/fish.png", "fish", -3500 + i, hCenter + i, 300);
+  }
+  for(i=-50; i<50; i++){
+    createImg("image/fish.png", "fish", -10000 + i, hCenter + i, 300);
+  }
+  for(i=-100; i<100; i++){
+    createImg("image/fish.png", "fish", -15000 + i, hCenter + i, 300);
+  }
+  for(i=-100; i<100; i++){
+    createImg("image/fish.png", "fish", -15000 + i, hCenter + i, 300);
+  }
+  for(i=-100; i<100; i++){
+    createImg("image/fish.png", "fish", -15000 + i, hCenter + i, 300);
+  }
+
+
+  makeMethodForEachTime("fish",
+
+    function(){
+      randX = Math.floor( Math.random() * 11 ) - 4;
+      randY = Math.floor( Math.random() * 5 ) - 2;
+
+      this.addForce(randX, randY);
+    }
+  );
+
+
   setInterval("nextTime()", intTimeStep);
 }
 
