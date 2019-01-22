@@ -1,5 +1,5 @@
 /*
-helper.js
+zai.js
 create 2019/01/21
 Kosuke Zaizen
 */
@@ -7,6 +7,10 @@ Kosuke Zaizen
 
 var curPage = "00";
 const objs = [];
+
+
+wCenter = window.innerWidth/2;
+hCenter = window.innerHeight/2;
 
 function initial(){
   changePage();
