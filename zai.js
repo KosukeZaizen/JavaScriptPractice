@@ -89,7 +89,6 @@ function createChar(char, strClass, x, y){
 function makeMethodForEachTime(strClass, func){
 
   for (i = 0; i < objs.length; i++){
-    var rand;
     obj = objs[i];
     if(obj.className == strClass){
       obj.doEachTime = func;
