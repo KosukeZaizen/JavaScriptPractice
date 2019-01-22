@@ -4,6 +4,7 @@ create 2019/01/21
 Kosuke Zaizen
 */
 
+
 var curPage = "00";
 const objs = [];
 
@@ -31,6 +32,7 @@ function changePage(){
   }
 }
 
+
 function gebId(id){
   return document.getElementById(id);
 }
@@ -52,6 +54,7 @@ function show(obj){
 
 
 function addObj(obj){
+  obj.doEachTime = function(){}
   objs.push(obj);
 }
 
@@ -68,6 +71,24 @@ function createChar(char, strClass, x, y){
 
   gebId("page" + curPage).appendChild(span);
 
-  addObj(span)
+  addObj(span);
 }
 
+
+function makeMethodForEachTime(strClass, func){
+
+  for (i = 0; i < objs.length; i++){
+    var rand;
+    obj = objs[i];
+    if(obj.className == strClass){
+      obj.doEachTime = func;
+    }
+  }
+}
+
+
+function nextTime(){
+  for (i = 0; i < objs.length; i++){
+    objs[i].doEachTime();
+  }
+}
