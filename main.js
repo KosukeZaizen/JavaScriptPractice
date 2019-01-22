@@ -10,7 +10,9 @@ function startGame(){
   setPage("01");
   changePage();
 
-  //---------char---------
+
+
+  //---------dots---------
   for(i=wCenter-40; i<wCenter+40; i++){
     for(j=hCenter-25; j<hCenter+25; j++){
       createChar(".", "particle", i, j, 100);
@@ -28,7 +30,8 @@ function startGame(){
   );
 
 
-  //---------img---------
+
+  //---------puff---------
   createImg("image/syuu.png", "syuu", wCenter, -200, 300);
 
   makeMethodForEachTime("syuu",
@@ -39,7 +42,7 @@ function startGame(){
   );
 
 
+
   setInterval("nextTime()", intTimeStep);
 }
-
 
