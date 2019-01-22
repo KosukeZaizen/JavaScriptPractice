@@ -29,8 +29,14 @@ function startGame(){
 
 
   //---------img---------
-  createImg("image/syuu.png", "syuu", wCenter, -200);
+  createImg("image/syuu.png", "syuu", wCenter, -200, 300);
 
+  makeMethodForEachTime("syuu",
+
+    function(){
+      this.addForce(0, 10);
+    }
+  );
 
 
   setInterval("nextTime()", intTimeStep);
