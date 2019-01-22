@@ -58,7 +58,14 @@ function show(obj){
 
 
 function addObj(obj){
+
   obj.doEachTime = function(){}
+
+  obj.move = function(x, y){
+    obj.style.left = parseInt(obj.style.left) + x + "px";
+    obj.style.top = parseInt(obj.style.top) + y + "px";
+  }
+
   objs.push(obj);
 }
 

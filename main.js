@@ -18,15 +18,14 @@ function startGame(){
   makeMethodForEachTime("particle",
 
     function(){
-      rand = Math.floor( Math.random() * 3 ) - 1;
-      this.style.top = parseInt(this.style.top) + rand + "px";
+      randX = Math.floor( Math.random() * 3 ) - 1;
+      randY = Math.floor( Math.random() * 3 ) - 1;
 
-      var rand = Math.floor( Math.random() * 3 ) - 1;
-      this.style.left = parseInt(this.style.left) + rand + "px";
+      this.move(randX, randY);
     }
   );
 
-  setInterval("nextTime()",10);
+  setInterval("nextTime()", 10);
 }
 
 
