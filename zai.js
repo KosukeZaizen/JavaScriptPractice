@@ -58,19 +58,33 @@ function show(obj){
 
 
 function addObj(obj){
+  obj.xAccel = 0;
+  obj.yAccel = 0;
+  obj.xSpeed = 0;
+  obj.ySpeed = 0;
 
   obj.doEachTime = function(){}
 
-  obj.move = function(x, y){
-    obj.style.left = parseInt(obj.style.left) + x + "px";
-    obj.style.top = parseInt(obj.style.top) + y + "px";
+  obj.addForce = function(xForce, yForce){
+    this.xAccel = xForce / this.weight;
+    this.yAccel = yForce / this.weight;
+  }
+
+  obj.calcSpeed = function(){
+    this.xSpeed = this.xSpeed + this.xAccel * intTimeStep;
+    this.ySpeed = this.ySpeed + this.yAccel * intTimeStep;
+  }
+
+  obj.calcPos = function(){
+    this.style.left = parseInt(this.style.left) + Math.floor(this.xSpeed * intTimeStep) + "px";
+    this.style.top = parseInt(this.style.top) + Math.floor(this.ySpeed * intTimeStep) + "px";
   }
 
   objs.push(obj);
 }
 
 
-function createChar(char, strClass, x, y){
+function createChar(char, strClass, x, y, weight){
 
   var span = document.createElement('span');
 
@@ -82,7 +96,25 @@ function createChar(char, strClass, x, y){
 
   gebId("page" + curPage).appendChild(span);
 
+  span.weight = weight;
   addObj(span);
+}
+
+
+function createImg(strSrc, strClass, x, y, weight){
+
+  var img = document.createElement('img');
+
+  img.src = strSrc;
+  img.className = strClass;
+  img.style.position = "fixed";
+  img.style.top = y + "px";
+  img.style.left = x + "px";
+
+  gebId("page" + curPage).appendChild(img);
+
+  img.weight = weight;
+  addObj(img);
 }
 
 
@@ -100,5 +132,7 @@ function makeMethodForEachTime(strClass, func){
 function nextTime(){
   for (i = 0; i < objs.length; i++){
     objs[i].doEachTime();
+    objs[i].calcSpeed();
+    objs[i].calcPos();
   }
 }
