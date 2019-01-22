@@ -4,8 +4,6 @@ create 2019/01/21
 Kosuke Zaizen
 */
 
-wCenter = window.innerWidth/2;
-hCenter = window.innerHeight/2;
 
 function startGame(){
   setPage("01");
