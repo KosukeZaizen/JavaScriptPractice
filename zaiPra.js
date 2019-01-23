@@ -12,7 +12,7 @@ const objs = [];
 wCenter = window.innerWidth/2;
 hCenter = window.innerHeight/2;
 
-function initial(){
+window.onload = function initial(){
   changePage();
 }
 
