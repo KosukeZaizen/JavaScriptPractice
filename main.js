@@ -55,7 +55,7 @@ function startGame(){
   makeMethodForEachTime("fish",
 
     function(){
-      randX = Math.floor( Math.random() * 31 ) - 14;
+      randX = Math.floor( Math.random() * 31 ) - 13;
       randY = Math.floor( Math.random() * 5 ) - 2;
 
       this.addForce(randX, randY);
